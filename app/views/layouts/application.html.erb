@@ -11,6 +11,17 @@
   </head>
 
   <body>
-    <%= yield %>
+
+    <div class="container-fluid">
+      <div class="header">
+        <%= link_to "Cocktails", cocktails_path %>
+        <%= link_to "Add a cocktail", new_cocktail_path %>
+      </div>
+    </div>
+
+    <div class="container">
+      <%= yield %>
+    </div>
+
   </body>
 </html>
