@@ -1,17 +1,28 @@
-<h1>Cocktail list</h1>
-
-
-<% @cocktails.each do |c| %>
-  <div class="card-product p-2 m-3">
-    <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
-    <div class="card-product-infos">
-      <h2><%= link_to c.name, cocktail_path(c)%></h2>
-        <% c.doses.each do |d|%>
-        <span><%= d.description %></span>
-        <span><%= d.ingredient.name %></span>
-        <% end %>
-    </div>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=asset_url('cocktail.jpg')%>);">
+  <div class="container">
+    <h1>Cocktail list</h1>
+    <p>The best cocktails you've ever tried !</p>
   </div>
-<% end %>
+</div>
 
-<%= link_to "new", new_cocktail_path %>
+<div class="container">
+  <div class="row">
+    <% @cocktails.each do |c| %>
+      <div class="card-product p-2 m-3">
+        <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+        <div class="card-product-infos">
+          <h2><%= link_to c.name, cocktail_path(c)%></h2>
+            <% c.doses.each do |d|%>
+            <p>
+            <span><%= d.description %></span>
+            <span><%= d.ingredient.name %></span>
+            </p>
+            <% end %>
+        </div>
+      </div>
+    <% end %>   
+
+    <%= link_to "new", new_cocktail_path %>
+
+  </div>
+</div>
