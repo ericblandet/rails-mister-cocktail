@@ -9,9 +9,9 @@
   <div class="row">
     <% @cocktails.each do |cocktail| %>
       <div class="card-product p-2 m-3">
-      <% if cocktail.photo.attached? %>
-        <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
-      <% end %>
+        <% if cocktail.photo.attached? %>
+          <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+        <% end %>
         <div class="card-product-infos">
           <h2><%= link_to cocktail.name, cocktail_path(cocktail)%></h2>
             <% cocktail.doses.each do |dose|%>
@@ -23,6 +23,5 @@
         </div>
       </div>
     <% end %>   
-
   </div>
 </div>
