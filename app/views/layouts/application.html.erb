@@ -14,12 +14,23 @@
 
   <body>
 
+
       <div class="header">
         <%= link_to "Cocktails", cocktails_path, class:"eric-button" %>
         <%= link_to "Add a cocktail", new_cocktail_path, class:"eric-button" %>
       </div>
 
       <%= yield %>
+
+    <div class="footer">
+      <div class="container centered">
+          <ul class="list-inline">
+            <li><a href="https://www.instagram.com/insta__pix/" class="eric-white-link"><i class="fab fa-instagram farbig"></i></a></li>
+            <li><a href="https://github.com/ericblandet"class="eric-white-link"><i class="fab fa-github-square farbig"></i></a></li>
+            <li><a href="https://www.linkedin.com/in/eric-blandet/"class="eric-white-link"><i class="fab fa-linkedin farbig"></i></a></li>
+          </ul>
+        </div>
+      </div>
 
   </body>
 </html>
