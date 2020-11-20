@@ -1,13 +1,23 @@
-<h1><%= @cocktail.name %></h1>
+<div class="container">
+  <h1><%= @cocktail.name %></h1>
 
-<% @cocktail.ingredients.each do |i| %>
-  <%= i.name %>
-<% end %>
+  <% @cocktail.doses.each do |dose| %>
+    <ul class="list-group">
+      <li class="list-group-item">
+        <%= dose.description %>
+        <%= dose.ingredient.name%>
+        <%= link_to "delete", dose_path(dose), method:"delete" %>
+      </li>
+    </ul>
+  <% end %>
 
-<%= simple_form_for [@cocktail, @dose] do |f| %>
-  <%= f.input :description %>
-  <%= f.association :ingredient %>
-  <%= f.submit %>
-<% end %>
 
-<%= link_to "Back to Cocktail List", cocktails_path %>
+  <h4>add a new dose</h4>
+  <%= simple_form_for [@cocktail, @dose] do |f| %>
+    <%= f.input :description %>
+      <%= f.association :ingredient, input_html: { class: 'select2' }%>
+    <%= f.submit %>
+  <% end %>
+
+  <%= link_to "Back to Cocktail List", cocktails_path %>
+</div>
