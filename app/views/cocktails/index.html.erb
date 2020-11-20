@@ -7,22 +7,22 @@
 
 <div class="container">
   <div class="row">
-    <% @cocktails.each do |c| %>
+    <% @cocktails.each do |cocktail| %>
       <div class="card-product p-2 m-3">
-        <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+      <% if cocktail.photo.attached? %>
+        <%= cl_image_tag cocktail.photo.key, height: 300, width: 400, crop: :fill %>
+      <% end %>
         <div class="card-product-infos">
-          <h2><%= link_to c.name, cocktail_path(c)%></h2>
-            <% c.doses.each do |d|%>
+          <h2><%= link_to cocktail.name, cocktail_path(cocktail)%></h2>
+            <% cocktail.doses.each do |dose|%>
             <p>
-            <span><%= d.description %></span>
-            <span><%= d.ingredient.name %></span>
+            <span><%= dose.description %></span>
+            <span><%= dose.ingredient.name %></span>
             </p>
             <% end %>
         </div>
       </div>
     <% end %>   
-
-    <%= link_to "new", new_cocktail_path %>
 
   </div>
 </div>
