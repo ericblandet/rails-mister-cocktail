@@ -1,15 +1,21 @@
-a:hover {
-  text-decoration: none;
-  border-color: red;
-}
+
 
 .eric-button {
   display: inline-block;
   text-align: center;
   padding: 8px;
-  border-left: solid 5px black;
+  border-left: solid 10px black;
   background-color: $light-gray;
   text-decoration: none;
   font-weight: bolder;
   font-size: 24px;
+  color: black;
+}
+
+.eric-button:hover {
+  text-decoration: none;
+  border-color: grey;
+  transition: all 0.1s;
+  color: grey;
+  text-decoration:none;
 }

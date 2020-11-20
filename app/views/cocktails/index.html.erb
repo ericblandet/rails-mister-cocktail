@@ -1,6 +1,6 @@
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%=asset_url('cocktail.jpg')%>);">
   <div class="container">
-    <h1>Cocktail list</h1>
+    <h1>The Cocktails list</h1>
     <p>The best cocktails you've ever tried !</p>
   </div>
 </div>
@@ -10,20 +10,23 @@
   <div class="cards">
     <% @cocktails.each do |cocktail| %>
     <% if cocktail.photo.attached? %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>')">
+      <div class="card-category eric-white-link" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key %>')">
     <% else %>
-      <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://flawless.life/wp-content/uploads/2017/09/gods-of-mixology-cover.jpg')">
+      <div class="card-category eric-white-link" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://flawless.life/wp-content/uploads/2017/09/gods-of-mixology-cover.jpg')">
     <% end %>
-      <%= link_to cocktail.name, cocktail_path(cocktail) %>
+      <%= link_to cocktail.name, cocktail_path(cocktail), class:"eric-white-link" %>
         <%= link_to "+", cocktail_path(cocktail), method: :delete, class: "card-remove-link", data: {confirm: 'Are you sure you want to delete this wonderful-imagined-with-loads-of-love-cocktail?'} %>
         <div class="card-tags">
           <% cocktail.doses.each do |dose| %>
-            <span><%= dose.ingredient.name %></span>
+            <span><em><%= dose.ingredient.name %></em></span>
           <% end %>
         </div>
       </div>
     <% end %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://flawless.life/wp-content/uploads/2017/09/gods-of-mixology-cover.jpg')">
+      <%= link_to new_cocktail_path do %>
+        <div class="card-category d-flex align-items-center eric-white-link" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://flawless.life/wp-content/uploads/2017/09/gods-of-mixology-cover.jpg')">
+          <h4><strong>Add your cocktail</strong></h4>
+        </div>
+      <% end %>
   </div>
-
 </div> 
