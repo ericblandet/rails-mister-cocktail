@@ -1,5 +1,10 @@
-<div class="container">
-  <h1><%= @cocktail.name %></h1>
+<div class="container mt-5">
+
+  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo.key %>');">
+    <div class="container">
+      <h1><%= @cocktail.name %></h1>
+    </div>
+  </div>
 
   <% @cocktail.doses.each do |dose| %>
     <ul class="list-group">
@@ -11,13 +16,17 @@
     </ul>
   <% end %>
 
+  <div class="container mt-5">
+  
+    <h4>Add a new dose</h4>
 
-  <h4>add a new dose</h4>
-  <%= simple_form_for [@cocktail, @dose] do |f| %>
-    <%= f.input :description %>
-      <%= f.association :ingredient, input_html: { class: 'select2' }%>
-    <%= f.submit %>
-  <% end %>
+    <%= simple_form_for [@cocktail, @dose] do |f| %>
+      <%= f.input :description %>
+        <%= f.association :ingredient, input_html: { class: 'select2' }%>
+      <%= f.submit %>
+    <% end %>
+    
+  </div>
 
-  <%= link_to "Back to Cocktail List", cocktails_path %>
 </div>
+
