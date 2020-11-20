@@ -1,6 +1,9 @@
 <div class="container mt-5">
-
-  <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo.key %>');">
+  <% if @cocktail.photo.attached? %>
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= cl_image_path @cocktail.photo.key %>');">
+  <% else %>
+    <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('https://flawless.life/wp-content/uploads/2017/09/gods-of-mixology-cover.jpg');">
+  <% end %>
     <div class="container">
       <h1><%= @cocktail.name %></h1>
     </div>
@@ -25,7 +28,7 @@
         <%= f.association :ingredient, input_html: { class: 'select2' }%>
       <%= f.submit %>
     <% end %>
-    
+
   </div>
 
 </div>
