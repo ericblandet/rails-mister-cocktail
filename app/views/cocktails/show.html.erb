@@ -19,7 +19,7 @@
             <li>
               <%= dose.description %>
               <%= dose.ingredient.name%>
-              <%= link_to "delete", dose_path(dose), method:"delete" %>
+              <%= link_to "delete", dose_path(dose), method:"delete",class:"delete-link" %>
             </li>
           </ul>
         <% end %>

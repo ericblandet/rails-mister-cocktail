@@ -15,6 +15,11 @@
 
 a {
   text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
 }
 
 .footer{
@@ -24,7 +29,6 @@ a {
   margin-bottom: -64px;
   display: flex;
   align-items: center;
-
 }
 
 .list-inline {
@@ -42,4 +46,22 @@ a {
 
 .farbig:hover {
   color: rgba(246, 233, 233, 0.4)
+}
+
+.big-border-left:hover {
+  text-decoration: none;
+  border-color: grey;
+  transition: all 0.3s ease-in-out;
+}
+
+.eric-white-link {
+  color: white;
+  opacity:1;
+  transition: all 0.4s ease-in-out;
+}
+
+.eric-white-link:hover {
+  opacity:0.8;
+  color: white;
+  text-decoration: none!important;
 }

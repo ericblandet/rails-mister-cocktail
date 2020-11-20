@@ -7,7 +7,7 @@
   text-decoration: none;
   font-weight: bolder;
   font-size: 24px;
-  color: black;
+  color: grey;
   border-right: none;
   border-top: none;
   border-bottom: none;
@@ -17,6 +17,10 @@
 .eric-button:hover {
   text-decoration: none;
   border-color: grey;
+  color: black;
+}
+
+.delete-link {
   color: grey;
-  text-decoration:none;
+  font-style: italic;
 }
